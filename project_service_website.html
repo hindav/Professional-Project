@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Project Development Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .header {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1600&q=80') center/cover no-repeat;
+            color: white;
+            padding: 120px 20px;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .header p {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease;
+            max-width: 600px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1.2s ease;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+            background: #5568d3;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section {
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            margin-bottom: 50px;
+            color: #333;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #667eea;
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .service-icon {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        .pricing-section {
+            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=80') center/cover fixed;
+        }
+
+        .pricing-box {
+            background: white;
+            padding: 50px 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .price {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: #667eea;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .price-subtext {
+            color: #666;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            margin-bottom: 30px;
+        }
+
+        .features-list {
+            text-align: left;
+            margin: 30px 0;
+            padding: 0 20px;
+        }
+
+        .features-list li {
+            list-style: none;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            color: #555;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        .features-list li::before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .contact-section {
+            background: linear-gradient(rgba(102, 126, 234, 0.95), rgba(118, 75, 162, 0.95)), url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1600&q=80') center/cover fixed;
+            color: white;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .footer p {
+            font-size: clamp(0.8rem, 2vw, 1rem);
+        }
+
+        /* Success Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 500px;
+            margin: 20px;
+            animation: slideUp 0.4s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: #4CAF50;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 3rem;
+            color: white;
+            animation: scaleIn 0.5s ease;
+        }
+
+        .modal-content h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+        }
+
+        .modal-content p {
+            color: #666;
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            margin-bottom: 10px;
+        }
+
+        .redirect-text {
+            color: #667eea;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile specific adjustments */
+        @media (max-width: 768px) {
+            .header {
+                padding: 80px 20px;
+                min-height: 90vh;
+            }
+
+            .section {
+                padding: 60px 15px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .service-card {
+                padding: 30px 20px;
+            }
+
+            .pricing-box {
+                padding: 40px 25px;
+            }
+
+            .contact-form {
+                padding: 30px 20px;
+            }
+
+            .features-list {
+                padding: 0 10px;
+            }
+        }
+
+        /* Small mobile devices */
+        @media (max-width: 480px) {
+            .header {
+                padding: 60px 15px;
+            }
+
+            .cta-button {
+                padding: 12px 30px;
+            }
+
+            .section {
+                padding: 50px 10px;
+            }
+
+            .pricing-box {
+                padding: 30px 20px;
+            }
+
+            .contact-form {
+                padding: 25px 15px;
+            }
+        }
+
+        /* Large screens */
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 1400px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Professional Project Development</h1>
+        <p>High-Quality Custom Projects at Affordable Rates - Full Stack, Machine Learning & Streamlit Applications</p>
+        <a href="#contact" class="cta-button">Get Started Today</a>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">My Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🚀</div>
+                    <h3>Full Stack Development</h3>
+                    <p>Complete web applications with modern frontend frameworks and robust backend solutions. From responsive user interfaces to scalable server architecture.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🤖</div>
+                    <h3>Machine Learning</h3>
+                    <p>Custom ML models, predictive analytics, and intelligent solutions tailored to your specific business requirements and use cases.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Streamlit Applications</h3>
+                    <p>Interactive data applications and real-time dashboards that transform your data into actionable insights with beautiful visualizations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section pricing-section">
+        <div class="container">
+            <h2 class="section-title">Affordable Pricing</h2>
+            <div class="pricing-box">
+                <h3>Custom Project Development</h3>
+                <div class="price">₹7,000 - ₹12,000</div>
+                <p class="price-subtext">Professional quality projects at budget-friendly rates</p>
+                <ul class="features-list">
+                    <li>Clean, maintainable code</li>
+                    <li>Responsive design for all devices</li>
+                    <li>Complete documentation included</li>
+                    <li>Timely delivery guaranteed</li>
+                    <li>Post-delivery support</li>
+                    <li>Multiple revision rounds included</li>
+                    <li>Source code ownership</li>
+                </ul>
+                <a href="#contact" class="cta-button" style="margin-top: 20px;">Start Your Project</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Let's Work Together</h2>
+            <form class="contact-form" action="https://formspree.io/f/mdknrnov" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX">
+                </div>
+                <div class="form-group">
+                    <label for="project">Project Type *</label>
+                    <select id="project" name="project" required>
+                        <option value="">Select a service</option>
+                        <option value="Full Stack Development">Full Stack Development</option>
+                        <option value="Machine Learning">Machine Learning</option>
+                        <option value="Streamlit Application">Streamlit Application</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="budget">Budget Range</label>
+                    <select id="budget" name="budget">
+                        <option value="">Select budget range</option>
+                        <option value="7000-9000">₹7,000 - ₹9,000</option>
+                        <option value="9000-12000">₹9,000 - ₹12,000</option>
+                        <option value="12000+">₹12,000+</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Project Details *</label>
+                    <textarea id="message" name="message" placeholder="Tell me about your project requirements, features needed, timeline, etc..." required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 Professional Project Development. All rights reserved.</p>
+    </footer>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="success-icon">✓</div>
+            <h2>Message Sent Successfully!</h2>
+            <p>Thank you for reaching out. I'll get back to you soon.</p>
+            <p class="redirect-text">Redirecting to homepage in <span id="countdown">3</span> seconds...</p>
+        </div>
+    </div>
+
+    <script>
+        const form = document.querySelector('.contact-form');
+        const modal = document.getElementById('successModal');
+        
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(form);
+            const submitButton = form.querySelector('.submit-button');
+            const originalButtonText = submitButton.textContent;
+            
+            // Disable button and show loading state
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Show success modal
+                    modal.style.display = 'flex';
+                    form.reset();
+                    
+                    // Countdown and redirect
+                    let seconds = 3;
+                    const countdownElement = document.getElementById('countdown');
+                    
+                    const countdownInterval = setInterval(() => {
+                        seconds--;
+                        countdownElement.textContent = seconds;
+                        
+                        if (seconds <= 0) {
+                            clearInterval(countdownInterval);
+                            window.location.href = '#'; // Redirects to homepage
+                            modal.style.display = 'none';
+                        }
+                    }, 1000);
+                } else {
+                    alert('Oops! There was a problem sending your message. Please try again.');
+                }
+            } catch (error) {
+                alert('Oops! There was a problem sending your message. Please try again.');
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
+            }
+        });
+    </script>
+</body>
+</html>
